@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../../controllers/shops');
+const controllers = require('../../controllers/shops');
+const { isValidId } = require('../../middlewares');
 
-router.get('/shops', controller.getAllShops);
-router.get('/shop/:shopId', controller.getShopMenuById);
+router.get('/shops', controllers.getAllShops);
+router.get('/shop/:shopId', isValidId, controllers.getShopMenuById);
 
 module.exports = { shopRouter: router };

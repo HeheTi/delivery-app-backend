@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const Joi = require('joi');
+const { mongooseHandleError } = require('../helpers');
 
 const emailRegex =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -25,10 +26,7 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.post('save', (error, data, next) => {
-  error.status = 400;
-  next();
-});
+userSchema.post('save', mongooseHandleError);
 
 const emailSchema = Joi.object({
   email: Joi.string().pattern(emailRegex).required(),
