@@ -1,4 +1,8 @@
-const postOrder = require('./postOrder');
 const { ctrlWrapper } = require('../../helpers');
+const postOrder = require('./postOrder');
+const getUserHistory = require('./getUserHistory');
 
-module.exports = { postOrder: ctrlWrapper(postOrder) };
+module.exports = {
+  postOrder: ctrlWrapper(postOrder),
+  getUserHistory: ctrlWrapper(getUserHistory),
+};

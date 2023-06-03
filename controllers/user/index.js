@@ -1,6 +1,6 @@
 const { ctrlWrapper } = require('../../helpers');
-const getUserByEmail = require('./getUserByEmail');
+const getUserInfo = require('./getUserInfo');
 
 module.exports = {
-  getUserByEmail: ctrlWrapper(getUserByEmail),
+  getUserInfo: ctrlWrapper(getUserInfo),
 };

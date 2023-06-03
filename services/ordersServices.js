@@ -5,4 +5,9 @@ const saveOrder = async orderData => {
   return order;
 };
 
-module.exports = { saveOrder };
+const getHistory = async id => {
+  const history = await Order.find({ owner: id });
+  return history;
+};
+
+module.exports = { saveOrder, getHistory };
