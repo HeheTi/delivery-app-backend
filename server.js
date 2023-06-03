@@ -1,0 +1,17 @@
+const app = require('./app');
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', true);
+
+const { DB_HOST, PORT } = process.env;
+
+mongoose
+  .connect(DB_HOST)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`http://localhost:${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.log(err.message);
+    process.exit(1);
+  });
