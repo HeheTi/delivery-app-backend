@@ -1,8 +1,8 @@
-const { Shop } = require('../../models/shop');
 const { HttpError } = require('../../helpers');
+const { getShops } = require('../../services/shopsServices');
 
 const getAllShops = async (req, res) => {
-  const shops = await Shop.find(null, '_id shop');
+  const shops = await getShops();
   if (!shops) {
     throw HttpError(404, `Shops not found`);
   }

@@ -4,6 +4,6 @@ const controllers = require('../../controllers/shops');
 const { isValidId } = require('../../middlewares');
 
 router.get('/shops', controllers.getAllShops);
-router.get('/shop/:shopId', isValidId, controllers.getShopMenuById);
+router.get('/shop/:id', isValidId, controllers.getShopMenuById);
 
 module.exports = { shopRouter: router };

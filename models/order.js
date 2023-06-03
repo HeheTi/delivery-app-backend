@@ -4,8 +4,8 @@ const { mongooseHandleError } = require('../helpers');
 const orderSchema = new Schema(
   {
     shop: {
-      _id: Schema.Types.ObjectId,
-      title: String,
+      type: Schema.Types.ObjectId,
+      ref: 'shop',
     },
     time: {
       type: String,
